@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jysk Golfrejse · 21.–23. oktober 2026</title>
+<meta name="description" content="Interaktiv rejseplan: 108 huller på 6 jyske golfbaner over tre dage i oktober 2026. Med sol-tider, køreplan, overnatning og budget.">
+<meta name="theme-color" content="#0b1410">
+<meta property="og:title" content="Jysk Golfrejse · 108 huller på 3 dage">
+<meta property="og:description" content="Lyngbygaard, Silkeborg, Holstebro Skovbanen, Nordvestjysk og HimmerLand — 21.–23. oktober 2026.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛳</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">⛳ 21.–23. oktober 2026 · Solrød → Jylland → Solrød</div>
+    <h1>Jysk Golfrejse<small>Seks baner, 108 huller og tre dage med alt det lys efteråret kan give.</small></h1>
+    <div class="hero-stats">
+      <div class="hstat"><b>108</b><span>Huller</span></div>
+      <div class="hstat"><b>6</b><span>Baner</span></div>
+      <div class="hstat"><b>1.003 km</b><span>I bilen</span></div>
+      <div class="hstat"><b>11t 20m</b><span>Brugbart lys / dag</span></div>
+    </div>
+    <p class="countdown" id="countdown"></p>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="wrap nav-inner" role="tablist" id="nav"></div>
+</nav>
+
+<main class="wrap">
+
+  <!-- OVERBLIK -->
+  <section class="panel" id="p-overblik" role="tabpanel">
+    <h2>Overblik</h2>
+    <p class="lede">Turen er bygget bagfra om lyset. I slutningen af oktober står solen op ca. 08:10 og går ned ca. 18:05 — men med civilt tusmørke er der reelt <strong>11 timer og 20 minutter</strong> brugbart lys. 36 huller kræver ca. 9 timer inkl. transport, så planen holder. Dag 2 er den eneste, der er rigtig stram.</p>
+
+    <div class="cards" id="overview-days"></div>
+
+    <h2 style="margin-top:3.5rem">Lysregnskabet</h2>
+    <p class="lede">Sommertiden ophører først søndag d. 25. oktober, så hele turen køres på UTC+2. Det er værd at vide: havde turen ligget en uge senere, ville alt rykke en time tidligere, og dag 2 ville ikke kunne lade sig gøre.</p>
+    <div id="sun-cards" class="cards"></div>
+
+    <h2 style="margin-top:3.5rem">Rute</h2>
+    <div class="card" style="padding:1.6rem">
+      <div id="route"></div>
+    </div>
+  </section>
+
+  <!-- DAGE indsættes af app.js -->
+  <section class="panel" id="p-dag1" role="tabpanel"></section>
+  <section class="panel" id="p-dag2" role="tabpanel"></section>
+  <section class="panel" id="p-dag3" role="tabpanel"></section>
+
+  <!-- BANER -->
+  <section class="panel" id="p-baner" role="tabpanel">
+    <h2>Banerne</h2>
+    <p class="lede">Seks runder, seks forskellige karakterer: parkbane, skovbane, Gudenå-kupering, prisbelønnet nåleskov, vestjysk klitbane og en tidligere DP World Tour-vært. Greenfee-priser er klubbernes officielle 2026-takster — flere af dem er dynamiske, så den faktiske pris vises ved booking i GolfBox.</p>
+    <div class="cards" id="course-cards"></div>
+    <p class="note" style="margin-top:2rem"><b>Spar penge:</b> Silkeborg, Lyngbygaard, Holstebro og HimmerLand har indbyrdes greenfee-aftaler med 33% rabat til fuldtidsmedlemmer (mindstepris 300–350 kr.). Er I medlem af én af dem, kan I skære flere hundrede kroner af turen. Flexmedlemskaber tæller ikke.</p>
+  </section>
+
+  <!-- OVERNATNING -->
+  <section class="panel" id="p-ophold" role="tabpanel">
+    <h2>Overnatning</h2>
+    <p class="lede">To nætter med vilje i hver sin ende af skalaen: en billig og hyggelig campinghytte efter den lange køredag, og resortet med spa som belønning inden de sidste 36 huller.</p>
+    <div class="cards" id="stay-cards"></div>
+  </section>
+
+  <!-- BUDGET -->
+  <section class="panel" id="p-budget" role="tabpanel">
+    <h2>Budget</h2>
+    <p class="lede">Juster antal personer og biler, så fordeles bro og overnatning automatisk. Selve kørslen er gratis, så den indgår ikke — kun Storebælt koster. Tallene er vejledende 2026-priser hentet fra klubbernes og overnatningsstedernes egne sider.</p>
+    <div class="budget-grid">
+      <div class="card">
+        <table id="budget-table"></table>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:1rem">
+          <div class="ctrl">
+            <label>Antal personer <b id="lbl-people">2</b></label>
+            <input type="range" id="people" min="1" max="8" value="2">
+          </div>
+          <div class="ctrl" style="margin-bottom:0">
+            <label>Antal biler <b id="lbl-cars">1</b></label>
+            <input type="range" id="cars" min="1" max="4" value="1">
+          </div>
+        </div>
+        <div class="card" style="margin-bottom:1rem">
+          <label style="display:block;font:600 .76rem/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem">Niveau</label>
+          <div class="seg" id="tier">
+            <button data-tier="lean" aria-pressed="false">Nøjsom</button>
+            <button data-tier="mid" aria-pressed="true">Normal</button>
+            <button data-tier="plus" aria-pressed="false">Forkælelse</button>
+          </div>
+          <p class="note" id="tier-note" style="margin-top:1rem"></p>
+        </div>
+        <div class="card">
+          <div class="bigfig" id="per-person">–<small>Pr. person i alt</small></div>
+          <div style="margin-top:1.3rem;padding-top:1.3rem;border-top:1px solid var(--line)">
+            <div class="bigfig" id="grand" style="font-size:1.6rem;color:var(--ink)">–<small>Samlet for gruppen</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORBEREDELSE -->
+  <section class="panel" id="p-klar" role="tabpanel">
+    <h2>Gør klar</h2>
+    <p class="lede">Afkrydsninger gemmes i din browser, så listen husker sig selv til næste gang.</p>
+
+    <h3 style="margin-top:1rem">Book og bekræft</h3>
+    <div class="progress"><i id="prep-bar" style="width:0"></i></div>
+    <div class="cards" id="prep-cards"></div>
+
+    <h3 style="margin-top:3rem">Pakkeliste</h3>
+    <div class="progress"><i id="pack-bar" style="width:0"></i></div>
+    <div class="cards" id="pack-cards"></div>
+
+    <p class="note" style="margin-top:2rem"><b>Vejret:</b> Oktober i Vestjylland betyder vind fra Vesterhavet og 8–12 °C. Regnudstyr er ikke valgfrit — særligt på Nordvestjysk, hvor der ingen læ er. Tjek DMI 48 timer før afgang; ved "ikke tællende baneforhold" giver flere klubber halv greenfee.</p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p><strong>Jysk Golfrejse · 21.–23. oktober 2026.</strong> Sol-tider er beregnet med NOAA-algoritmen for hver banes koordinater og angivet i dansk sommertid (UTC+2). Greenfee, overnatnings- og brotakster er vejledende og hentet fra udbydernes officielle sider — bekræft altid den aktuelle pris ved booking. Køretider er beregnet uden trafik; læg buffer til i myldretiden omkring Aarhus.</p>
+  <p style="margin-top:1rem">Runderne er sat til 4 timer pr. 18 huller, hvilket forudsætter 2- eller 3-bolde. En 4-bold i oktober kan nemt tage 4½ time — og så holder dag 2 ikke.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

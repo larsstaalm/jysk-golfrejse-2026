@@ -27,14 +27,14 @@ const COURSES = {
   },
   silkeborg: {
     name: "Silkeborg Golfklub",
-    course: "Silkeborg-banen, 18 huller",
-    addr: "Sensommervej 15C, 8600 Silkeborg",
+    course: "18 huller af anlæggets 27 (SYD, VEST, ØST)",
+    addr: "Sommervej 50, 8600 Silkeborg",
     web: "https://silkeborggolf.dk/gaester-greenfee/",
     greenfee: 500,
     feeNote: "Dynamisk pris 500–800 kr. Mindstepris 350 kr.",
     blurb:
-      "Klassisk kuperet skovbane i Gudenå-landskabet — en af Danmarks smukkeste på en klar efterårsdag. Differentierede priser, så en eftermiddagstid rammer den lave ende af skalaen.",
-    tip: "33% rabat til medlemmer af bl.a. Lyngbygaard, Holstebro, HimmerLand og Aalborg. Oplys det ved booking.",
+      "Klassisk kuperet skovbane i Gudenå-landskabet — en af Danmarks smukkeste på en klar efterårsdag. Anlægget har 27 huller fordelt på sløjferne SYD, VEST og ØST.",
+    tip: "Vigtigt: de tre 9-hullers sløjfer roterer, så hvilke 18 huller der er «banen» skifter cirka hver uge. Tjek baneinfo på hjemmesiden ugen før — ellers ved I ikke, hvilken sløjfe I starter på.",
   },
   holstebro: {
     name: "Holstebro Golfklub",
@@ -123,7 +123,7 @@ const DAYS = [
     headline: "Solrød → Aarhus → Silkeborg",
     summary:
       "Turens lange kørselsdag, men med en overkommelig morgen. I slår ud en time efter solopgang i fuldt dagslys, og den korte tur til Silkeborg giver tid til en rigtig frokost inden anden runde kl. 14.",
-    drive: 335,
+    drive: 372,
     courses: ["lyngbygaard", "silkeborg"],
     stay: "soepark",
     risk: "high",
@@ -151,7 +151,7 @@ const DAYS = [
     headline: "Skovbane møder klitbane",
     summary:
       "Turens mest kontrastfyldte dag — og den stramme. Prisbelønnet skovbane om formiddagen, vindblæst klitbane ved Vesterhavet om eftermiddagen.",
-    drive: 225,
+    drive: 230,
     courses: ["holstebro", "nordvestjysk"],
     stay: "himmerland",
     risk: "high",
@@ -191,7 +191,7 @@ const DAYS = [
       { t: "16:30", type: "sun", title: "108 huller gennemført", desc: "Halvanden time før solnedgang. Tid til en øl i klubhuset inden hjemturen.", meta: "Solnedgang 18:01" },
       { t: "17:00", type: "drive", title: "Afgang mod Solrød", desc: "400 km via E45, Vejle, Fyn og Storebæltsbroen (220 kr. med BroBizz).", meta: "4 t 15 min" },
       { t: "19:00", type: "break", title: "Pause på Fyn", desc: "Aftensmad undervejs — I har fortjent andet end en sandwich.", meta: "45 min" },
-      { t: "21:45", type: "arrive", title: "Hjemme i Solrød Strand", desc: "Turen er slut. 108 huller, 6 baner, 1.003 km.", meta: "" },
+      { t: "21:45", type: "arrive", title: "Hjemme i Solrød Strand", desc: "Turen er slut. 108 huller, 6 baner, 1.002 km.", meta: "" },
     ],
   },
 ];

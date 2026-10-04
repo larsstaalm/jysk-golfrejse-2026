@@ -199,7 +199,7 @@ function buildOverview() {
   // Route
   const legs = [
     ["Solrød Strand", "Lyngbygaard Golf, Brabrand", "255 km", "2 t 50 min", "E20 over Storebælt"],
-    ["Lyngbygaard Golf, Brabrand", "Silkeborg Golfklub, Sensommervej 15C", "38 km", "35 min", "Rute 15"],
+    ["Lyngbygaard Golf, Brabrand", "Silkeborg Golfklub, Sommervej 50, Silkeborg", "37 km", "25 min", "Silkeborgmotorvejen"],
     ["Silkeborg", "Holstebro Søpark Camping, Birkevej 25, Holstebro", "80 km", "1 t 5 min", "Rute 15 vestpå"],
     ["Holstebro", "Holstebro Golfklub Skovbanen, Råsted", "20 km", "25 min", "Lokalvej"],
     ["Råsted, 7570 Vemb", "Nordvestjysk Golfklub, Nystrupvej 19, Thisted", "110 km", "1 t 25 min", "Rute 11 gennem Thy"],
@@ -212,7 +212,7 @@ function buildOverview() {
       <td><strong>${a.split(",")[0]}</strong> → <strong>${b.split(",")[0]}</strong><br><span style="color:var(--muted);font-size:.82rem">${via}</span></td>
       <td></td><td class="num">${km}</td><td class="num">${tm}</td>
       <td class="num"><a class="minibtn" target="_blank" rel="noopener" href="${dirs(a, b)}">Kort</a></td></tr>`).join("") +
-    `<tr class="total"><td>I alt</td><td></td><td class="num">1.003 km</td><td class="num">12 t 0 m</td><td></td></tr>`;
+    `<tr class="total"><td>I alt</td><td></td><td class="num">1.002 km</td><td class="num">11 t 50 m</td><td></td></tr>`;
   $("#route").appendChild(t);
 }
 

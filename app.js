@@ -203,8 +203,8 @@ function buildOverview() {
     ["Silkeborg", "Holstebro Søpark Camping, Birkevej 25, Holstebro", "80 km", "1 t 5 min", "Rute 15 vestpå"],
     ["Holstebro", "Holstebro Golfklub Skovbanen, Råsted", "20 km", "25 min", "Lokalvej"],
     ["Råsted, 7570 Vemb", "Nordvestjysk Golfklub, Nystrupvej 19, Thisted", "110 km", "1 t 25 min", "Rute 11 gennem Thy"],
-    ["Nystrupvej 19, Thisted", "HimmerLand Resort, Centervej 1, Farsø", "100 km", "1 t 25 min", "Via Aggersundbroen"],
-    ["HimmerLand Resort, Farsø", "Solrød Strand", "400 km", "4 t 15 min", "E45 + E20 over Storebælt"],
+    ["Nystrupvej 19, Thisted", "Hytte i Gatten, 9640 Farsø", "100 km", "1 t 25 min", "Via Aggersundbroen"],
+    ["HimmerLand Resort, Gatten", "Solrød Strand", "400 km", "4 t 15 min", "E45 + E20 over Storebælt"],
   ];
   const t = el("table");
   t.innerHTML = "<tr><th>Etape</th><th>Rute</th><th class='num'>Distance</th><th class='num'>Tid</th><th></th></tr>" +
@@ -256,6 +256,7 @@ function buildStays() {
         <tr><td>Vejledende pris</td><td class="num">${kr(s.price)}</td></tr>
         <tr class="sub"><td colspan="2">${s.priceNote}</td></tr>
       </table>
+      ${s.warnNote ? `<p class="note" style="color:var(--warn);margin-top:.8rem">${s.warnNote}</p>` : ""}
       <div class="ev-links">
         <a class="minibtn" target="_blank" rel="noopener" href="${maps(s.name + ", " + s.addr)}">📍 ${s.addr}</a>
         <a class="minibtn" target="_blank" rel="noopener" href="${s.web}">🔗 Book</a>
@@ -265,9 +266,9 @@ function buildStays() {
 
 /* ---------- Budget ---------- */
 const TIERS = {
-  lean: { f: 0.8, food: 350, note: "Mad fra supermarked og madlavning i hytten. Standardhytte og simpelt værelse." },
+  lean: { f: 0.8, food: 350, note: "Mad fra supermarked og madlavning i begge hytter. Enkel standard begge nætter." },
   mid: { f: 1, food: 650, note: "Frokost i klubhuset og én middag ude pr. dag. Det realistiske niveau." },
-  plus: { f: 1.25, food: 1100, note: "À la carte hver aften og opgraderet værelse på HimmerLand. Buggy vælges separat ovenfor." },
+  plus: { f: 1.25, food: 1100, note: "À la carte hver aften, bl.a. i restauranten på HimmerLand, og en større Airbnb-hytte. Buggy vælges separat ovenfor." },
 };
 let state = { people: 2, cars: 1, tier: "mid", buggyRounds: 6 };
 
@@ -278,10 +279,9 @@ function budget() {
   const listFee = Object.values(COURSES).reduce((a, c) => a + c.greenfee, 0);
   const greenfee = TRIP.freeGolf ? 0 : listFee * T.f;
 
-  // Overnatning: hytte deles af op til 4, hotelværelser er dobbeltværelser
+  // Begge nætter er hytter, der deles af op til 4.
   const huts = Math.ceil(people / 4);
-  const rooms = Math.ceil(people / 2);
-  const stayTotal = STAYS.soepark.price * huts + STAYS.himmerland.price * rooms * (state.tier === "plus" ? 1.25 : 1);
+  const stayTotal = (STAYS.soepark.price + STAYS.himmerland.price) * huts;
 
   // Kørslen er gratis — kun Storebælt koster.
   const bridge = TRIP.bridgeEachWay * 2 * cars; // 220 kr. pr. vej med BroBizz
@@ -300,7 +300,7 @@ function budget() {
     <tr class="sub"><td colspan="3">I spiller frit. Normalprisen ville have været ${kr(listFee)} pr. person.</td></tr>
 
     <tr><td>Overnatning — 2 nætter</td><td class="num">${kr(stayTotal / people)}</td><td class="num">${kr(stayTotal)}</td></tr>
-    <tr class="sub"><td colspan="3">${huts} hytte${huts > 1 ? "r" : ""} på Søpark + ${rooms} værelse${rooms > 1 ? "r" : ""} på HimmerLand</td></tr>
+    <tr class="sub"><td colspan="3">${huts} hytte${huts > 1 ? "r" : ""} på Søpark (${kr(STAYS.soepark.price)}) + ${huts} Airbnb-hytte${huts > 1 ? "r" : ""} i Gatten (${kr(STAYS.himmerland.price)}) — hver deles af op til 4</td></tr>
 
     <tr><td>Storebælt — tur/retur</td><td class="num">${kr(bridge / people)}</td><td class="num">${kr(bridge)}</td></tr>
     <tr class="sub"><td colspan="3">${kr(TRIP.bridgeEachWay)} pr. vej med BroBizz × ${cars} bil${cars > 1 ? "er" : ""} · kørslen er gratis</td></tr>

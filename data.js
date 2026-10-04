@@ -95,15 +95,17 @@ const STAYS = {
     perks: ["Vinteråbent", "Hytter til 2–6 pers.", "20 min. til Skovbanen", "Eget køkken = billig morgenmad"],
   },
   himmerland: {
-    name: "HimmerLand Golf & Spa Resort",
-    type: "Resorthotel",
-    addr: "Centervej 1, Gatten, 9640 Farsø",
-    web: "https://himmerlandresort.dk/",
-    price: 1300,
-    priceNote: "ca. 1.100–1.600 kr. pr. dobbeltværelse inkl. morgenbuffet",
+    name: "Hytte i Gatten (Airbnb)",
+    type: "Feriehus · bookes via Airbnb",
+    addr: "Gatten, 9640 Farsø — tæt på HimmerLand Resort",
+    web: "https://www.airbnb.dk/gatten-denmark/stays",
+    price: 1100,
+    priceNote: "ca. 900–1.400 kr. pr. hytte pr. nat — deles af op til 4",
     blurb:
-      "Turens forkælelse. Overnatning direkte ved første tee, morgenbuffet tidligt og spa- og poolområde til at skylle 72 huller ud af benene.",
-    perks: ["Spa & pool", "Morgenbuffet", "0 min. til tee 1", "Spørg efter golfpakke (stay & play)"],
+      "Feriehus i Gatten i stedet for resortværelse. Billigere, mere plads og eget køkken, så morgenmaden kan stå klar kl. 06:30 uden at vente på en buffet.",
+    perks: ["Eget køkken", "Selv-check-in sent om aftenen", "Deles af op til 4", "Tjek afstand til klubhuset ved booking"],
+    warnNote:
+      "To ting forsvinder med Airbnb: morgenbuffet og adgang til spa/pool. Morgenmaden skal købes ind dagen før, og afstanden til Starters House skal verificeres på kortet — ikke alle Gatten-hytter ligger på selve resortet.",
   },
 };
 
@@ -166,8 +168,8 @@ const DAYS = [
       { t: "14:00", type: "golf", title: "Runde 2 — Nordvestjysk 18 huller", desc: "Klitbane i lyng og bjergfyr. Overvej buggy (300 kr.) — det er det bedst brugte beløb på hele turen med den tidsplan her.", meta: "ca. 4 t", course: "nordvestjysk" },
       { t: "18:00", type: "sun", title: "Dagens kritiske punkt", desc: "Solnedgang 18:08. Marginen er 8 minutter, og her er I ved Vesterhavet uden læ. Bliver runden bare 20 minutter forsinket, spilles de sidste huller i reelt tusmørke (civilt lys til 18:47).", meta: "Solnedgang 18:08", warn: true },
       { t: "18:15", type: "drive", title: "Kørsel til HimmerLand", desc: "100 km via Fjerritslev, Aggersundbroen og Løgstør. Mørk, men nem køretur.", meta: "1 t 25 min" },
-      { t: "19:40", type: "stay", title: "Check-in, HimmerLand Resort", desc: "Værelse med udsigt over banerne. Book bord i restauranten i forvejen — I ankommer sent.", meta: "", stay: "himmerland" },
-      { t: "20:15", type: "food", title: "Middag på resortet", desc: "Efterfulgt af spa og pool. I har 36 huller i benene og 36 mere i morgen.", meta: "" },
+      { t: "19:40", type: "stay", title: "Check-in i hytten, Gatten", desc: "Airbnb med selv-check-in, så den sene ankomst er uproblematisk — ingen reception der lukker. Aftal nøglekode med værten i forvejen.", meta: "", stay: "himmerland" },
+      { t: "20:15", type: "food", title: "Aftensmad og indkøb", desc: "Handl ind undervejs — i Løgstør eller Farsø på vejen — eller spis i restauranten på resortet. Husk morgenmad til i morgen: hytten har køkken, men ingen buffet.", meta: "", warn: true },
     ],
   },
   {
@@ -184,7 +186,8 @@ const DAYS = [
     risk: "low",
     riskNote: "Nul transport mellem runderne. Færdig 1,5 time før solnedgang.",
     items: [
-      { t: "06:45", type: "food", title: "Morgenbuffet", desc: "Check ud og læg bagagen i bilen med det samme, så I kan køre direkte efter runde 2.", meta: "" },
+      { t: "06:40", type: "food", title: "Morgenmad i hytten", desc: "Egen morgenmad fra køkkenet — det var indkøbet i går aftes. Pak bilen helt, så I kan køre direkte hjem efter runde 2.", meta: "" },
+      { t: "07:25", type: "drive", title: "Til Starters House", desc: "Kort tur fra hytten til klubhuset. Afsæt ti minutter mere, end kortet siger: det er mørkt og I skal have bags over på buggyen.", meta: "ca. 10 min" },
       { t: "07:45", type: "golf", title: "Runde 1 — New Course", desc: "Mesterskabsbanen og tidligere vært for Made in HimmerLand. Lukker for sæsonen 1. november.", meta: "ca. 4 t", course: "himmerlandNew" },
       { t: "11:45", type: "food", title: "Frokost i klubhuset", desc: "Tredive minutter. Hul 1 ligger lige uden for døren.", meta: "30 min" },
       { t: "12:30", type: "golf", title: "Runde 2 — Old Course", desc: "Kortere, mere kuperet og med skovkarakter. Turens hul 91-108.", meta: "ca. 4 t", course: "himmerlandOld" },
@@ -198,7 +201,7 @@ const DAYS = [
 
 const PACKING = [
   { cat: "Golf", items: ["Golfsæt + ekstra handsker", "Mindst 12 bolde pr. dag", "Regnhandsker (oktober i Thy)", "Vandtæt regntøj — jakke og bukser", "Ekstra par golfsko", "Håndklæde (gerne to)", "Afstandsmåler + oplader", "DGU-kort — kræves ved Nordvestjysk", "Tees, pitchfork, blyant"] },
-  { cat: "Tøj", items: ["Varmt base layer", "Vindjakke", "Hue og halsedisse", "Skiftetøj til hver dag", "Badetøj til spa på HimmerLand", "Pæne sko og skjorte til middag"] },
+  { cat: "Tøj", items: ["Varmt base layer", "Vindjakke", "Hue og halsedisse", "Skiftetøj til hver dag", "Morgenmad til fredag (købes torsdag)", "Pæne sko og skjorte til middag"] },
   { cat: "Bil & vej", items: ["BroBizz i forruden", "Telefonholder + billader", "Termokande", "Køletaske til snacks og drikkevarer", "Skraber og sprinklervæske", "Ekstra håndklæder til våde bags"] },
   { cat: "Papirer", items: ["Bekræftelser på alle 6 teetider", "Booking på Søpark og HimmerLand", "Sygesikringsbevis", "Kreditkort — proboxen tager kun kort"] },
 ];
@@ -206,7 +209,7 @@ const PACKING = [
 const PREP = [
   { when: "Nu", task: "Book alle 6 teetider i GolfBox", why: "Oktober-formiddage på de gode baner forsvinder først. Dag 2 kl. 07:55 er den kritiske." },
   { when: "Nu", task: "Book hytte på Holstebro Søpark", why: "Vinteråbent, men begrænset antal hytter uden for sæsonen." },
-  { when: "Nu", task: "Book værelse på HimmerLand — spørg efter golfpakke", why: "Stay & play kan være billigere end værelse + 2 greenfees separat." },
+  { when: "Nu", task: "Book hytte i Gatten på Airbnb", why: "Tjek tre ting på annoncen: at den tillader check-in efter kl. 19:30, at der er køkken, og hvor langt der reelt er til Starters House." },
   { when: "Nu", task: "Bekræft fri greenfee på alle seks baner", why: "Få skriftligt på plads, hvordan I checker ind, når I ikke betaler — så undgår I diskussion i proshoppen kl. 07:45." },
   { when: "Nu", task: "Overvej buggy på Nordvestjysk", why: "Dag 2 slutter 8 minutter før solnedgang. Buggy er den billigste forsikring mod at spille de sidste huller i mørke." },
   { when: "2 dage før", task: "Tjek banestatus på alle 6 baner", why: "Efterårsvejr kan give midlertidige greens — og dermed halv greenfee." },

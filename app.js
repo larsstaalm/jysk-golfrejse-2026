@@ -229,8 +229,8 @@ function buildCourses() {
       <p style="color:var(--fair);font-size:.86rem;font-weight:600;margin:.1rem 0 .7rem">${c.course}</p>
       <p>${c.blurb}</p>
       <table style="margin-top:1rem">
-        <tr><td>Greenfee</td><td class="num">${kr(c.greenfee)}</td></tr>
-        <tr class="sub"><td colspan="2">${c.feeNote}</td></tr>
+        <tr><td>Greenfee</td><td class="num" style="color:var(--fair)">${TRIP.freeGolf ? "Gratis" : kr(c.greenfee)}</td></tr>
+        <tr class="sub"><td colspan="2">${TRIP.freeGolf ? "Normalpris " + kr(c.greenfee) + " — " + c.feeNote.toLowerCase() : c.feeNote}</td></tr>
       </table>
       <p class="note">${c.tip}</p>
       <div class="ev-links">
@@ -265,9 +265,9 @@ function buildStays() {
 
 /* ---------- Budget ---------- */
 const TIERS = {
-  lean: { f: 0.8, food: 350, note: "Billigste teetider, mad fra supermarked og madlavning i hytten. Greenfee i den lave ende af de dynamiske priser." },
-  mid: { f: 1, food: 650, note: "Officielle hverdagspriser, frokost to-go og én middag ude pr. dag. Det realistiske niveau." },
-  plus: { f: 1.25, food: 1100, note: "Attraktive teetider, buggy på de hårde dage, à la carte og opgraderet værelse på HimmerLand." },
+  lean: { f: 0.8, food: 350, note: "Mad fra supermarked og madlavning i hytten. Standardhytte og simpelt værelse." },
+  mid: { f: 1, food: 650, note: "Frokost i klubhuset og én middag ude pr. dag. Det realistiske niveau." },
+  plus: { f: 1.25, food: 1100, note: "Buggy på de hårde dage, à la carte og opgraderet værelse på HimmerLand." },
 };
 let state = { people: 2, cars: 1, tier: "mid" };
 
@@ -275,7 +275,8 @@ function budget() {
   const T = TIERS[state.tier];
   const { people, cars } = state;
 
-  const greenfee = Object.values(COURSES).reduce((a, c) => a + c.greenfee, 0) * T.f;
+  const listFee = Object.values(COURSES).reduce((a, c) => a + c.greenfee, 0);
+  const greenfee = TRIP.freeGolf ? 0 : listFee * T.f;
 
   // Overnatning: hytte deles af op til 4, hotelværelser er dobbeltværelser
   const huts = Math.ceil(people / 4);
@@ -292,8 +293,8 @@ function budget() {
 
   $("#budget-table").innerHTML = `
     <tr><th>Post</th><th class="num">Pr. person</th><th class="num">I alt</th></tr>
-    <tr><td>Greenfee — 6 runder</td><td class="num">${kr(greenfee)}</td><td class="num">${kr(greenfee * people)}</td></tr>
-    <tr class="sub"><td colspan="3">${Object.values(COURSES).map(c => c.name.replace("HimmerLand", "HL")).join(" · ")}</td></tr>
+    <tr><td>Greenfee — 6 runder</td><td class="num" style="color:var(--fair)">Gratis</td><td class="num" style="color:var(--fair)">0 kr.</td></tr>
+    <tr class="sub"><td colspan="3">I spiller frit. Normalprisen ville have været ${kr(listFee)} pr. person.</td></tr>
 
     <tr><td>Overnatning — 2 nætter</td><td class="num">${kr(stayTotal / people)}</td><td class="num">${kr(stayTotal)}</td></tr>
     <tr class="sub"><td colspan="3">${huts} hytte${huts > 1 ? "r" : ""} på Søpark + ${rooms} værelse${rooms > 1 ? "r" : ""} på HimmerLand</td></tr>

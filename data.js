@@ -8,6 +8,8 @@ const TRIP = {
   start: "2026-10-21T04:15:00+02:00",
   home: { name: "Solrød Strand", q: "Solrød Strand, Danmark" },
   bridgeEachWay: 220, // BroBizz, personbil
+  freeGolf: true,     // Spillerne har fri greenfee — priser vises kun til orientering
+  freeDriving: true,  // Kørslen er gratis — kun broafgift indgår i budgettet
 };
 
 const COURSES = {
@@ -123,20 +125,21 @@ const DAYS = [
     drive: 335,
     courses: ["lyngbygaard", "silkeborg"],
     stay: "soepark",
-    risk: "low",
-    riskNote: "God margin. Runde 2 slutter ca. 1 time før solnedgang.",
+    risk: "high",
+    riskNote: "Stram afslutning: runde 2 slutter 18:00 — kun 7 minutter før solnedgang. Til gengæld er der tid til en rigtig frokost.",
     items: [
       { t: "04:15", type: "drive", title: "Afgang fra Solrød Strand", desc: "Bilen pakkes aftenen før. 255 km til Lyngbygaard via E20 og Storebæltsbroen.", meta: "2 t 50 min" },
       { t: "05:45", type: "break", title: "Pause ved Storebælt", desc: "Kaffe og tank op ved Korsør eller Nyborg. Broafgift 220 kr. med BroBizz.", meta: "15 min" },
       { t: "07:15", type: "arrive", title: "Ankomst Lyngbygaard Golf", desc: "Check-in i receptionen, scorekort og et par bolde på rangen mens det lysner.", meta: "Civilt gry 07:25" },
       { t: "07:50", type: "golf", title: "Runde 1 — Lyngbygaard 18 huller", desc: "Teetid sat til første spilbare lys. Spil som 2- eller 3-bold for at holde tempoet.", meta: "ca. 4 t", course: "lyngbygaard" },
-      { t: "11:50", type: "drive", title: "Videre mod Silkeborg", desc: "38 km ad rute 15. Frokost spises i bilen — bestil en to-go i Brasseriet inden runden.", meta: "35 min" },
+      { t: "11:50", type: "drive", title: "Videre mod Silkeborg", desc: "38 km ad rute 15.", meta: "35 min" },
       { t: "12:45", type: "arrive", title: "Ankomst Silkeborg Golfklub", desc: "Check-in via GolfNext-automaten i Proshoppen.", meta: "" },
-      { t: "13:05", type: "golf", title: "Runde 2 — Silkeborg 18 huller", desc: "Kuperet skovbane i efterårsfarver. Solnedgang 18:07, så der er komfortabel margin.", meta: "ca. 4 t", course: "silkeborg" },
-      { t: "17:05", type: "sun", title: "Dagens 36 huller er i hus", desc: "En time før solnedgang. Skift sko og pak bilen i ro.", meta: "Solnedgang 18:07" },
-      { t: "17:45", type: "drive", title: "Kørsel til Holstebro", desc: "80 km ad rute 15 vestpå.", meta: "1 t 5 min" },
-      { t: "18:50", type: "stay", title: "Check-in, Holstebro Søpark", desc: "Campinghytte med eget køkken. Smid en pose morgenmad i køleskabet til i morgen.", meta: "", stay: "soepark" },
-      { t: "19:45", type: "food", title: "Aftensmad i Holstebro", desc: "10 min. til centrum. Alternativt handles ind og laves mad i hytten — turens billigste aften.", meta: "" },
+      { t: "13:00", type: "food", title: "Frokost i klubhuset", desc: "En time til at spise ordentligt og hvile benene inden anden runde. Det er gevinsten ved den sene teetid.", meta: "1 t" },
+      { t: "14:00", type: "golf", title: "Runde 2 — Silkeborg 18 huller", desc: "Kuperet skovbane i efterårsfarver. Spil raskt — planen rammer solnedgangen præcist.", meta: "ca. 4 t", course: "silkeborg" },
+      { t: "18:00", type: "sun", title: "Dagens kritiske punkt", desc: "Solnedgang 18:07. Marginen er 7 minutter, så hul 16-18 spilles i aftenlys. Der er civilt lys til 18:45, men brug lyse bolde og hold øje med tempoet fra hul 12.", meta: "Solnedgang 18:07", warn: true },
+      { t: "18:40", type: "drive", title: "Kørsel til Holstebro", desc: "80 km ad rute 15 vestpå. Mørk køretur.", meta: "1 t 5 min" },
+      { t: "19:45", type: "stay", title: "Check-in, Holstebro Søpark", desc: "Campinghytte med eget køkken. Smid en pose morgenmad i køleskabet til i morgen.", meta: "", stay: "soepark" },
+      { t: "20:15", type: "food", title: "Aftensmad i Holstebro", desc: "10 min. til centrum — tjek lukketider, da I er sent ude. Alternativt handles ind på vejen og laves mad i hytten.", meta: "" },
     ],
   },
   {
@@ -151,18 +154,19 @@ const DAYS = [
     courses: ["holstebro", "nordvestjysk"],
     stay: "himmerland",
     risk: "high",
-    riskNote: "Stram dag: transporten midt på dagen er 110 km. Runde 2 slutter kun ca. 30 min. før solnedgang.",
+    riskNote: "Turens strammeste dag: 110 km transport midt på dagen, og runde 2 slutter 18:00 — kun 8 minutter før solnedgang.",
     items: [
       { t: "06:45", type: "food", title: "Morgenmad i hytten", desc: "Hurtig start — I skal være på tee før kl. 8.", meta: "" },
       { t: "07:15", type: "drive", title: "Kørsel til Råsted", desc: "20 km vestpå til Skovbanen. OBS: ikke samme adresse som Storåbanen.", meta: "25 min" },
       { t: "07:55", type: "golf", title: "Runde 1 — Holstebro Skovbanen", desc: "Turens bedst bedømte bane. Hold tempoet — dagens plan har ingen luft at give væk.", meta: "ca. 4 t", course: "holstebro" },
-      { t: "11:55", type: "drive", title: "Nordpå til Thisted", desc: "110 km ad rute 11 gennem Thy. Frokost spises undervejs — pak sandwich om morgenen.", meta: "1 t 25 min" },
-      { t: "13:25", type: "arrive", title: "Ankomst Nordvestjysk Golfklub", desc: "Betal på proboxen med kort. Husk gyldigt DGU-kort.", meta: "" },
-      { t: "13:40", type: "golf", title: "Runde 2 — Nordvestjysk 18 huller", desc: "Klitbane i lyng og bjergfyr. Overvej buggy (300 kr.) for at sikre, at I når rundt i lys.", meta: "ca. 4 t", course: "nordvestjysk" },
-      { t: "17:40", type: "sun", title: "Dagens kritiske punkt", desc: "Solnedgang 18:08. Marginen er ca. 28 minutter — bliver runden forsinket, spilles hul 17-18 i tusmørke (lys til 18:47).", meta: "Solnedgang 18:08", warn: true },
-      { t: "17:55", type: "drive", title: "Kørsel til HimmerLand", desc: "100 km via Fjerritslev, Aggersundbroen og Løgstør. Mørk, men nem køretur.", meta: "1 t 25 min" },
-      { t: "19:20", type: "stay", title: "Check-in, HimmerLand Resort", desc: "Værelse med udsigt over banerne. Book bord i restauranten inden ankomst.", meta: "", stay: "himmerland" },
-      { t: "20:00", type: "food", title: "Middag på resortet", desc: "Efterfulgt af spa og pool. I har 36 huller i benene og 36 mere i morgen.", meta: "" },
+      { t: "11:55", type: "drive", title: "Nordpå til Thisted", desc: "110 km ad rute 11 gennem Thy. Dagens lange transport.", meta: "1 t 25 min" },
+      { t: "13:25", type: "arrive", title: "Ankomst Nordvestjysk Golfklub", desc: "Check-in. Husk gyldigt DGU-kort.", meta: "" },
+      { t: "13:30", type: "food", title: "Frokost i klubhuset", desc: "En halv time til at spise og komme i tøjet. Her er det vinden, I skal klæde jer på til.", meta: "30 min" },
+      { t: "14:00", type: "golf", title: "Runde 2 — Nordvestjysk 18 huller", desc: "Klitbane i lyng og bjergfyr. Overvej buggy (300 kr.) — det er det bedst brugte beløb på hele turen med den tidsplan her.", meta: "ca. 4 t", course: "nordvestjysk" },
+      { t: "18:00", type: "sun", title: "Dagens kritiske punkt", desc: "Solnedgang 18:08. Marginen er 8 minutter, og her er I ved Vesterhavet uden læ. Bliver runden bare 20 minutter forsinket, spilles de sidste huller i reelt tusmørke (civilt lys til 18:47).", meta: "Solnedgang 18:08", warn: true },
+      { t: "18:15", type: "drive", title: "Kørsel til HimmerLand", desc: "100 km via Fjerritslev, Aggersundbroen og Løgstør. Mørk, men nem køretur.", meta: "1 t 25 min" },
+      { t: "19:40", type: "stay", title: "Check-in, HimmerLand Resort", desc: "Værelse med udsigt over banerne. Book bord i restauranten i forvejen — I ankommer sent.", meta: "", stay: "himmerland" },
+      { t: "20:15", type: "food", title: "Middag på resortet", desc: "Efterfulgt af spa og pool. I har 36 huller i benene og 36 mere i morgen.", meta: "" },
     ],
   },
   {
@@ -202,7 +206,8 @@ const PREP = [
   { when: "Nu", task: "Book alle 6 teetider i GolfBox", why: "Oktober-formiddage på de gode baner forsvinder først. Dag 2 kl. 07:55 er den kritiske." },
   { when: "Nu", task: "Book hytte på Holstebro Søpark", why: "Vinteråbent, men begrænset antal hytter uden for sæsonen." },
   { when: "Nu", task: "Book værelse på HimmerLand — spørg efter golfpakke", why: "Stay & play kan være billigere end værelse + 2 greenfees separat." },
-  { when: "Nu", task: "Tjek greenfee-aftaler i jeres hjemmeklub", why: "Silkeborg, Lyngbygaard, Holstebro og HimmerLand giver indbyrdes 33% rabat. Det kan være 800+ kr. pr. person." },
+  { when: "Nu", task: "Bekræft fri greenfee på alle seks baner", why: "Få skriftligt på plads, hvordan I checker ind, når I ikke betaler — så undgår I diskussion i proshoppen kl. 07:45." },
+  { when: "Nu", task: "Overvej buggy på Nordvestjysk", why: "Dag 2 slutter 8 minutter før solnedgang. Buggy er den billigste forsikring mod at spille de sidste huller i mørke." },
   { when: "2 dage før", task: "Tjek banestatus på alle 6 baner", why: "Efterårsvejr kan give midlertidige greens — og dermed halv greenfee." },
   { when: "Dagen før", task: "Pak bilen helt færdig", why: "Afgang kl. 04:15. Intet skal findes frem om morgenen." },
 ];

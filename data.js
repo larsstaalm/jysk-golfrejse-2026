@@ -7,7 +7,8 @@ const TRIP = {
   subtitle: "108 huller på 3 dage",
   start: "2026-10-21T05:20:00+02:00",
   home: { name: "Solrød Strand", q: "Solrød Strand, Danmark" },
-  bridgeEachWay: 220, // BroBizz, personbil
+  bridgeEachWay: 220,
+  buggyPrice: 300, // BroBizz, personbil
   freeGolf: true,     // Spillerne har fri greenfee — priser vises kun til orientering
   freeDriving: true,  // Kørslen er gratis — kun broafgift indgår i budgettet
 };

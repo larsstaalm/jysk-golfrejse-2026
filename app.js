@@ -267,9 +267,9 @@ function buildStays() {
 const TIERS = {
   lean: { f: 0.8, food: 350, note: "Mad fra supermarked og madlavning i hytten. Standardhytte og simpelt værelse." },
   mid: { f: 1, food: 650, note: "Frokost i klubhuset og én middag ude pr. dag. Det realistiske niveau." },
-  plus: { f: 1.25, food: 1100, note: "Buggy på de hårde dage, à la carte og opgraderet værelse på HimmerLand." },
+  plus: { f: 1.25, food: 1100, note: "À la carte hver aften og opgraderet værelse på HimmerLand. Buggy vælges separat ovenfor." },
 };
-let state = { people: 2, cars: 1, tier: "mid" };
+let state = { people: 2, cars: 1, tier: "mid", buggyRounds: 2 };
 
 function budget() {
   const T = TIERS[state.tier];
@@ -287,9 +287,12 @@ function budget() {
   const bridge = TRIP.bridgeEachWay * 2 * cars; // 220 kr. pr. vej med BroBizz
 
   const foodTotal = T.food * people;
-  const extras = (state.tier === "plus" ? 600 : state.tier === "mid" ? 150 : 0) * people; // buggy/trolley/range
 
-  const grand = greenfee * people + stayTotal + bridge + foodTotal + extras;
+  // Buggy: 300 kr. pr. styk pr. runde, én buggy deles af to spillere.
+  const buggies = Math.ceil(people / 2);
+  const buggyTotal = TRIP.buggyPrice * buggies * state.buggyRounds;
+
+  const grand = greenfee * people + stayTotal + bridge + foodTotal + buggyTotal;
 
   $("#budget-table").innerHTML = `
     <tr><th>Post</th><th class="num">Pr. person</th><th class="num">I alt</th></tr>
@@ -303,7 +306,9 @@ function budget() {
     <tr class="sub"><td colspan="3">${kr(TRIP.bridgeEachWay)} pr. vej med BroBizz × ${cars} bil${cars > 1 ? "er" : ""} · kørslen er gratis</td></tr>
 
     <tr><td>Mad og drikke</td><td class="num">${kr(T.food)}</td><td class="num">${kr(foodTotal)}</td></tr>
-    ${extras ? `<tr><td>Buggy, trolley, rangebolde</td><td class="num">${kr(extras / people)}</td><td class="num">${kr(extras)}</td></tr>` : ""}
+    ${buggyTotal ? `
+    <tr><td>Buggy — ${state.buggyRounds} runde${state.buggyRounds > 1 ? "r" : ""}</td><td class="num">${kr(buggyTotal / people)}</td><td class="num">${kr(buggyTotal)}</td></tr>
+    <tr class="sub"><td colspan="3">${kr(TRIP.buggyPrice)} pr. buggy pr. runde × ${buggies} buggy${buggies > 1 ? "er" : ""} — delt mellem ${people > 1 ? "jer" : "dig"}, dvs. ${kr(TRIP.buggyPrice * buggies * state.buggyRounds / people)} pr. person</td></tr>` : ""}
 
     <tr class="total"><td>I alt</td><td class="num">${kr(grand / people)}</td><td class="num">${kr(grand)}</td></tr>`;
 
@@ -312,6 +317,17 @@ function budget() {
   $("#tier-note").innerHTML = "<b>" + ({ lean: "Nøjsom", mid: "Normal", plus: "Forkælelse" })[state.tier] + ":</b> " + T.note;
   $("#lbl-people").textContent = people;
   $("#lbl-cars").textContent = cars;
+  $("#lbl-buggy").textContent = state.buggyRounds + " af 6";
+
+  const buggyNotes = {
+    0: "Alt til fods. Billigst, men dag 1 og 2 slutter under 10 minutter før solnedgang — der er ingen tid at tabe.",
+    1: "Én buggy: tag den på Nordvestjysk om eftermiddagen dag 2. Det er turens strammeste runde, i klitter og modvind.",
+    2: "Anbefalet: eftermiddagsrunderne dag 1 og 2 — de to runder, der rammer solnedgangen. 36 huller til fods dagligt koster tempo sidst på runden.",
+    6: "Buggy på alle seks runder. Med 108 huller på tre dage er det ikke dovenskab, men udholdenhed.",
+  };
+  $("#buggy-note").textContent =
+    buggyNotes[state.buggyRounds] ||
+    `Buggy på ${state.buggyRounds} af turens 6 runder. Prioritér eftermiddagsrunderne dag 1 og 2 — de rammer solnedgangen tættest.`;
 }
 
 function wireBudget() {
@@ -323,6 +339,7 @@ function wireBudget() {
     budget();
   };
   $("#cars").oninput = e => { state.cars = +e.target.value; budget(); };
+  $("#buggy").oninput = e => { state.buggyRounds = +e.target.value; budget(); };
   $("#tier").querySelectorAll("button").forEach(b => {
     b.onclick = () => {
       state.tier = b.dataset.tier;

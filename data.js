@@ -122,19 +122,20 @@ const DAYS = [
     dateLabel: "21. oktober 2026",
     headline: "Solrød → Aarhus → Silkeborg",
     summary:
-      "Turens lange kørselsdag, men med en overkommelig morgen. I slår ud en time efter solopgang i fuldt dagslys og spiser frokost i bilen for at nå anden runde kl. 14.",
+      "Turens lange kørselsdag, men med en overkommelig morgen. I slår ud en time efter solopgang i fuldt dagslys, og den korte tur til Silkeborg giver tid til en rigtig frokost inden anden runde kl. 14.",
     drive: 335,
     courses: ["lyngbygaard", "silkeborg"],
     stay: "soepark",
     risk: "high",
-    riskNote: "Stram i begge ender: kun 15 minutter mellem ankomst i Silkeborg og teetid kl. 14, og runde 2 slutter 18:00 — 7 minutter før solnedgang. Runde 1 skal holde tempoet.",
+    riskNote: "Risikoen ligger i den sene ende: runde 2 slutter 18:00, kun 7 minutter før solnedgang. Midt på dagen er der 35 minutters luft i Silkeborg, som kan æde en forsinkelse fra formiddagen.",
     items: [
       { t: "05:20", type: "drive", title: "Afgang fra Solrød Strand", desc: "Bilen pakkes aftenen før. 255 km til Lyngbygaard via E20 og Storebæltsbroen.", meta: "2 t 50 min" },
-      { t: "06:50", type: "break", title: "Pause ved Storebælt", desc: "Kaffe og tank op ved Korsør eller Nyborg. Broafgift 220 kr. med BroBizz. Køb dagens frokost med det samme — den skal spises i bilen senere.", meta: "15 min" },
+      { t: "06:50", type: "break", title: "Pause ved Storebælt", desc: "Kaffe og tank op ved Korsør eller Nyborg. Broafgift 220 kr. med BroBizz.", meta: "15 min" },
       { t: "08:25", type: "arrive", title: "Ankomst Lyngbygaard Golf", desc: "Check-in i receptionen og et par bolde på rangen. Solen stod op 08:03, så I spiller i fuldt dagslys fra første slag.", meta: "Solopgang 08:03" },
-      { t: "09:00", type: "golf", title: "Runde 1 — Lyngbygaard 18 huller", desc: "Spil som 2- eller 3-bold. Runden skal være færdig 13:00 — der er ingen luft i den anden ende.", meta: "ca. 4 t", course: "lyngbygaard" },
-      { t: "13:00", type: "drive", title: "Videre mod Silkeborg", desc: "38 km ad rute 15. Frokosten spises i bilen — det er prisen for den lange morgen.", meta: "45 min" },
-      { t: "13:45", type: "arrive", title: "Ankomst Silkeborg Golfklub", desc: "Kun 15 minutter til teetid. Check ind via GolfNext-automaten med det samme, og hav skoene på forhånd.", meta: "", warn: true },
+      { t: "09:00", type: "golf", title: "Runde 1 — Lyngbygaard 18 huller", desc: "Spil som 2- eller 3-bold. Runden bør være færdig 13:00, men der er nu 35 minutters luft i Silkeborg, hvis den trækker ud.", meta: "ca. 4 t", course: "lyngbygaard" },
+      { t: "13:00", type: "drive", title: "Videre mod Silkeborg", desc: "37 km, næsten alt på Silkeborgmotorvejen. Lyngbygaard ligger i Brabrand vest for Aarhus, så I undgår byen helt.", meta: "25 min" },
+      { t: "13:25", type: "arrive", title: "Ankomst Silkeborg Golfklub", desc: "Check-in via GolfNext-automaten i Proshoppen.", meta: "35 min til teetid" },
+      { t: "13:30", type: "food", title: "Frokost i klubhuset", desc: "En halv time til at spise ordentligt og hvile benene. Det er gevinsten ved den korte køretur fra Brabrand.", meta: "30 min" },
       { t: "14:00", type: "golf", title: "Runde 2 — Silkeborg 18 huller", desc: "Kuperet skovbane i efterårsfarver. Spil raskt — planen rammer solnedgangen præcist.", meta: "ca. 4 t", course: "silkeborg" },
       { t: "18:00", type: "sun", title: "Dagens kritiske punkt", desc: "Solnedgang 18:07. Marginen er 7 minutter, så hul 16-18 spilles i aftenlys. Der er civilt lys til 18:45, men brug lyse bolde og hold øje med tempoet fra hul 12.", meta: "Solnedgang 18:07", warn: true },
       { t: "18:40", type: "drive", title: "Kørsel til Holstebro", desc: "80 km ad rute 15 vestpå. Mørk køretur.", meta: "1 t 5 min" },
@@ -198,7 +199,7 @@ const DAYS = [
 const PACKING = [
   { cat: "Golf", items: ["Golfsæt + ekstra handsker", "Mindst 12 bolde pr. dag", "Regnhandsker (oktober i Thy)", "Vandtæt regntøj — jakke og bukser", "Ekstra par golfsko", "Håndklæde (gerne to)", "Afstandsmåler + oplader", "DGU-kort — kræves ved Nordvestjysk", "Tees, pitchfork, blyant"] },
   { cat: "Tøj", items: ["Varmt base layer", "Vindjakke", "Hue og halsedisse", "Skiftetøj til hver dag", "Badetøj til spa på HimmerLand", "Pæne sko og skjorte til middag"] },
-  { cat: "Bil & vej", items: ["BroBizz i forruden", "Telefonholder + billader", "Termokande", "Køletaske til frokost i bilen", "Skraber og sprinklervæske", "Ekstra håndklæder til våde bags"] },
+  { cat: "Bil & vej", items: ["BroBizz i forruden", "Telefonholder + billader", "Termokande", "Køletaske til snacks og drikkevarer", "Skraber og sprinklervæske", "Ekstra håndklæder til våde bags"] },
   { cat: "Papirer", items: ["Bekræftelser på alle 6 teetider", "Booking på Søpark og HimmerLand", "Sygesikringsbevis", "Kreditkort — proboxen tager kun kort"] },
 ];
 

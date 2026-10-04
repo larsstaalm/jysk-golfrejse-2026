@@ -269,7 +269,7 @@ const TIERS = {
   mid: { f: 1, food: 650, note: "Frokost i klubhuset og én middag ude pr. dag. Det realistiske niveau." },
   plus: { f: 1.25, food: 1100, note: "À la carte hver aften og opgraderet værelse på HimmerLand. Buggy vælges separat ovenfor." },
 };
-let state = { people: 2, cars: 1, tier: "mid", buggyRounds: 2 };
+let state = { people: 2, cars: 1, tier: "mid", buggyRounds: 6 };
 
 function budget() {
   const T = TIERS[state.tier];
@@ -323,7 +323,7 @@ function budget() {
     0: "Alt til fods. Billigst, men dag 1 og 2 slutter under 10 minutter før solnedgang — der er ingen tid at tabe.",
     1: "Én buggy: tag den på Nordvestjysk om eftermiddagen dag 2. Det er turens strammeste runde, i klitter og modvind.",
     2: "Anbefalet: eftermiddagsrunderne dag 1 og 2 — de to runder, der rammer solnedgangen. 36 huller til fods dagligt koster tempo sidst på runden.",
-    6: "Buggy på alle seks runder. Med 108 huller på tre dage er det ikke dovenskab, men udholdenhed.",
+    6: "Buggy på alle seks runder — jeres valg. Med 108 huller på tre dage er det ikke dovenskab, men udholdenhed. Det køber samtidig tempo på de to runder, der slutter tættest på solnedgang.",
   };
   $("#buggy-note").textContent =
     buggyNotes[state.buggyRounds] ||

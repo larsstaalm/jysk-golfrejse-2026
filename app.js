@@ -51,7 +51,7 @@ function countdown() {
     const d = Math.floor(diff / 864e5);
     const h = Math.floor(diff % 864e5 / 36e5);
     const m = Math.floor(diff % 36e5 / 6e4);
-    node.innerHTML = `Afgang fra Solrød Strand om <b>${d}</b> dage, <b>${h}</b> timer og <b>${m}</b> minutter — onsdag d. 21. oktober kl. 04:15.`;
+    node.innerHTML = `Afgang fra Solrød Strand om <b>${d}</b> dage, <b>${h}</b> timer og <b>${m}</b> minutter — onsdag d. 21. oktober kl. 05:20.`;
   };
   tick(); setInterval(tick, 30000);
 }

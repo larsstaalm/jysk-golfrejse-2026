@@ -5,7 +5,7 @@
 const TRIP = {
   title: "Jysk Golfrejse",
   subtitle: "108 huller på 3 dage",
-  start: "2026-10-21T04:15:00+02:00",
+  start: "2026-10-21T05:20:00+02:00",
   home: { name: "Solrød Strand", q: "Solrød Strand, Danmark" },
   bridgeEachWay: 220, // BroBizz, personbil
   freeGolf: true,     // Spillerne har fri greenfee — priser vises kun til orientering
@@ -121,20 +121,19 @@ const DAYS = [
     dateLabel: "21. oktober 2026",
     headline: "Solrød → Aarhus → Silkeborg",
     summary:
-      "Turens lange kørselsdag. Tidlig afgang i mørke betaler sig: I står på tee 1 ved Lyngbygaard i det øjeblik lyset er spilbart.",
+      "Turens lange kørselsdag, men med en overkommelig morgen. I slår ud en time efter solopgang i fuldt dagslys og spiser frokost i bilen for at nå anden runde kl. 14.",
     drive: 335,
     courses: ["lyngbygaard", "silkeborg"],
     stay: "soepark",
     risk: "high",
-    riskNote: "Stram afslutning: runde 2 slutter 18:00 — kun 7 minutter før solnedgang. Til gengæld er der tid til en rigtig frokost.",
+    riskNote: "Stram i begge ender: kun 15 minutter mellem ankomst i Silkeborg og teetid kl. 14, og runde 2 slutter 18:00 — 7 minutter før solnedgang. Runde 1 skal holde tempoet.",
     items: [
-      { t: "04:15", type: "drive", title: "Afgang fra Solrød Strand", desc: "Bilen pakkes aftenen før. 255 km til Lyngbygaard via E20 og Storebæltsbroen.", meta: "2 t 50 min" },
-      { t: "05:45", type: "break", title: "Pause ved Storebælt", desc: "Kaffe og tank op ved Korsør eller Nyborg. Broafgift 220 kr. med BroBizz.", meta: "15 min" },
-      { t: "07:15", type: "arrive", title: "Ankomst Lyngbygaard Golf", desc: "Check-in i receptionen, scorekort og et par bolde på rangen mens det lysner.", meta: "Civilt gry 07:25" },
-      { t: "07:50", type: "golf", title: "Runde 1 — Lyngbygaard 18 huller", desc: "Teetid sat til første spilbare lys. Spil som 2- eller 3-bold for at holde tempoet.", meta: "ca. 4 t", course: "lyngbygaard" },
-      { t: "11:50", type: "drive", title: "Videre mod Silkeborg", desc: "38 km ad rute 15.", meta: "35 min" },
-      { t: "12:45", type: "arrive", title: "Ankomst Silkeborg Golfklub", desc: "Check-in via GolfNext-automaten i Proshoppen.", meta: "" },
-      { t: "13:00", type: "food", title: "Frokost i klubhuset", desc: "En time til at spise ordentligt og hvile benene inden anden runde. Det er gevinsten ved den sene teetid.", meta: "1 t" },
+      { t: "05:20", type: "drive", title: "Afgang fra Solrød Strand", desc: "Bilen pakkes aftenen før. 255 km til Lyngbygaard via E20 og Storebæltsbroen.", meta: "2 t 50 min" },
+      { t: "06:50", type: "break", title: "Pause ved Storebælt", desc: "Kaffe og tank op ved Korsør eller Nyborg. Broafgift 220 kr. med BroBizz. Køb dagens frokost med det samme — den skal spises i bilen senere.", meta: "15 min" },
+      { t: "08:25", type: "arrive", title: "Ankomst Lyngbygaard Golf", desc: "Check-in i receptionen og et par bolde på rangen. Solen stod op 08:03, så I spiller i fuldt dagslys fra første slag.", meta: "Solopgang 08:03" },
+      { t: "09:00", type: "golf", title: "Runde 1 — Lyngbygaard 18 huller", desc: "Spil som 2- eller 3-bold. Runden skal være færdig 13:00 — der er ingen luft i den anden ende.", meta: "ca. 4 t", course: "lyngbygaard" },
+      { t: "13:00", type: "drive", title: "Videre mod Silkeborg", desc: "38 km ad rute 15. Frokosten spises i bilen — det er prisen for den lange morgen.", meta: "45 min" },
+      { t: "13:45", type: "arrive", title: "Ankomst Silkeborg Golfklub", desc: "Kun 15 minutter til teetid. Check ind via GolfNext-automaten med det samme, og hav skoene på forhånd.", meta: "", warn: true },
       { t: "14:00", type: "golf", title: "Runde 2 — Silkeborg 18 huller", desc: "Kuperet skovbane i efterårsfarver. Spil raskt — planen rammer solnedgangen præcist.", meta: "ca. 4 t", course: "silkeborg" },
       { t: "18:00", type: "sun", title: "Dagens kritiske punkt", desc: "Solnedgang 18:07. Marginen er 7 minutter, så hul 16-18 spilles i aftenlys. Der er civilt lys til 18:45, men brug lyse bolde og hold øje med tempoet fra hul 12.", meta: "Solnedgang 18:07", warn: true },
       { t: "18:40", type: "drive", title: "Kørsel til Holstebro", desc: "80 km ad rute 15 vestpå. Mørk køretur.", meta: "1 t 5 min" },
@@ -209,5 +208,5 @@ const PREP = [
   { when: "Nu", task: "Bekræft fri greenfee på alle seks baner", why: "Få skriftligt på plads, hvordan I checker ind, når I ikke betaler — så undgår I diskussion i proshoppen kl. 07:45." },
   { when: "Nu", task: "Overvej buggy på Nordvestjysk", why: "Dag 2 slutter 8 minutter før solnedgang. Buggy er den billigste forsikring mod at spille de sidste huller i mørke." },
   { when: "2 dage før", task: "Tjek banestatus på alle 6 baner", why: "Efterårsvejr kan give midlertidige greens — og dermed halv greenfee." },
-  { when: "Dagen før", task: "Pak bilen helt færdig", why: "Afgang kl. 04:15. Intet skal findes frem om morgenen." },
+  { when: "Dagen før", task: "Pak bilen helt færdig", why: "Afgang kl. 05:20. Intet skal findes frem om morgenen." },
 ];

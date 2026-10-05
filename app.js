@@ -201,8 +201,8 @@ function buildOverview() {
     ["Solrød Strand", "Lyngbygaard Golf, Brabrand", "255 km", "2 t 50 min", "E20 over Storebælt"],
     ["Lyngbygaard Golf, Brabrand", "Silkeborg Golfklub, Sommervej 50, Silkeborg", "37 km", "25 min", "Silkeborgmotorvejen"],
     ["Silkeborg", "Holstebro Søpark Camping, Birkevej 25, Holstebro", "80 km", "1 t 5 min", "Rute 15 vestpå"],
-    ["Holstebro", "Holstebro Golfklub Skovbanen, Råsted", "20 km", "25 min", "Lokalvej"],
-    ["Råsted, 7570 Vemb", "Nordvestjysk Golfklub, Nystrupvej 19, Thisted", "110 km", "1 t 25 min", "Rute 11 gennem Thy"],
+    ["Holstebro", "Holstebro Golfklub Skovbanen, Brandsbjergvej 4, 7570 Vemb", "20 km", "25 min", "Lokalvej"],
+    ["Brandsbjergvej 4, 7570 Vemb", "Nordvestjysk Golfklub, Nystrupvej 19, Thisted", "110 km", "1 t 25 min", "Rute 11 gennem Thy"],
     ["Nystrupvej 19, Thisted", "Hytte i Gatten, 9640 Farsø", "100 km", "1 t 25 min", "Via Aggersundbroen"],
     ["HimmerLand Resort, Gatten", "Solrød Strand", "400 km", "4 t 15 min", "E45 + E20 over Storebælt"],
   ];

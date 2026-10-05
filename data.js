@@ -39,13 +39,13 @@ const COURSES = {
   holstebro: {
     name: "Holstebro Golfklub",
     course: "Skovbanen i Råsted, 18 huller",
-    addr: "Råsted Kirkeby 5, 7570 Vemb",
+    addr: "Brandsbjergvej 4, 7570 Vemb",
     web: "https://www.holstebrogolfklub.dk/gaester/greenfee/",
     greenfee: 400,
     feeNote: "Dynamisk pris 400–600 kr. Aldrig under 300 kr.",
     blurb:
       "Turens tungvægter. Prisbelønnet skovbane tegnet af Erik Schnack, redesignet af Robert Trent Jones Jr. (2004) og Philip Spogard (2014). Snævre fairways mellem gamle nåletræer.",
-    tip: "Klubben har to anlæg. Skovbanen ligger i Råsted — ikke ved Storåbanen inde i Holstebro. Tjek adressen i GolfBox før afgang.",
+    tip: "Klubben har to anlæg. Skovbanen ligger på Brandsbjergvej 4 ved Råsted — ikke ved Storåbanen inde i Holstebro. Sæt adressen i GPS'en aftenen før, så I ikke kører forkert i mørket kl. 07:15.",
   },
   nordvestjysk: {
     name: "Nordvestjysk Golfklub",
@@ -160,7 +160,7 @@ const DAYS = [
     riskNote: "Turens strammeste dag: 110 km transport midt på dagen, og runde 2 slutter 18:00 — kun 8 minutter før solnedgang.",
     items: [
       { t: "06:45", type: "food", title: "Morgenmad i hytten", desc: "Hurtig start — I skal være på tee før kl. 8.", meta: "" },
-      { t: "07:15", type: "drive", title: "Kørsel til Råsted", desc: "20 km vestpå til Skovbanen. OBS: ikke samme adresse som Storåbanen.", meta: "25 min" },
+      { t: "07:15", type: "drive", title: "Kørsel til Råsted", desc: "20 km vestpå til Skovbanen, Brandsbjergvej 4. OBS: ikke samme adresse som Storåbanen inde i byen.", meta: "25 min" },
       { t: "07:55", type: "golf", title: "Runde 1 — Holstebro Skovbanen", desc: "Turens bedst bedømte bane. Hold tempoet — dagens plan har ingen luft at give væk.", meta: "ca. 4 t", course: "holstebro" },
       { t: "11:55", type: "drive", title: "Nordpå til Thisted", desc: "110 km ad rute 11 gennem Thy. Dagens lange transport.", meta: "1 t 25 min" },
       { t: "13:25", type: "arrive", title: "Ankomst Nordvestjysk Golfklub", desc: "Check-in. Husk gyldigt DGU-kort.", meta: "" },

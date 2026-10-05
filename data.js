@@ -157,15 +157,16 @@ const DAYS = [
     courses: ["holstebro", "nordvestjysk"],
     stay: "himmerland",
     risk: "high",
-    riskNote: "Turens strammeste dag: 110 km transport og et madstop midt på dagen giver kun 20 minutters luft før teetid kl. 14 — og runde 2 slutter 18:00, 8 minutter før solnedgang.",
+    riskNote: "Turens strammeste dag. Med tee 1 kl. 08:04 slutter runde 1 først 12:05, og efter 110 km transport og et madstop er der kun 10 minutters luft før teetid kl. 14 — og runde 2 slutter 18:00, 8 minutter før solnedgang. Bliver runde 1 forsinket, æder det direkte af runde 2.",
     items: [
-      { t: "06:45", type: "food", title: "Morgenmad i hytten", desc: "Hurtig start — I skal være på tee før kl. 8.", meta: "" },
-      { t: "07:15", type: "drive", title: "Kørsel til Råsted", desc: "20 km vestpå til Skovbanen, Brandsbjergvej 4. OBS: ikke samme adresse som Storåbanen inde i byen.", meta: "25 min" },
-      { t: "07:55", type: "golf", title: "Runde 1 — Holstebro Skovbanen", desc: "Turens bedst bedømte bane. Hold tempoet — dagens plan har ingen luft at give væk.", meta: "ca. 4 t", course: "holstebro" },
-      { t: "11:55", type: "drive", title: "Mod Holstebro", desc: "20 km tilbage mod byen. Første etape af dagens lange transport.", meta: "25 min" },
-      { t: "12:20", type: "food", title: "McDonald's Måbjerg — drive thru", desc: "Hyldgårdvej 5, nord i Holstebro og direkte på ruten mod Thisted. Bestil i app'en undervejs, så maden står klar — stoppet skal være kort. Spises i bilen.", meta: "15 min" },
-      { t: "12:35", type: "drive", title: "Nordpå til Thisted", desc: "90 km ad rute 11 gennem Thy via Struer.", meta: "1 t 5 min" },
-      { t: "13:40", type: "arrive", title: "Ankomst Nordvestjysk Golfklub", desc: "20 minutter til teetid. Check ind med DGU-kort, probox tager kun kort. Vindtøj på med det samme — her er intet læ.", meta: "20 min til tee", warn: true },
+      { t: "06:50", type: "food", title: "Morgenmad i hytten", desc: "Hurtig start — I skal være på tee kl. 08:04.", meta: "" },
+      { t: "07:20", type: "drive", title: "Kørsel til Råsted", desc: "20 km vestpå til Skovbanen, Brandsbjergvej 4. OBS: ikke samme adresse som Storåbanen inde i byen.", meta: "25 min" },
+      { t: "07:45", type: "arrive", title: "Ankomst Skovbanen", desc: "Knap 20 minutter til teetid. Solopgang er først 08:12, så de første huller spilles i gryende dagslys — det er lyst nok fra 07:33, men tag en bold I kan se.", meta: "19 min til tee" },
+      { t: "08:04", type: "golf", title: "Runde 1 — Holstebro Skovbanen", desc: "Turens bedst bedømte bane. Hold tempoet — dagens plan har ingen luft at give væk.", meta: "ca. 4 t", course: "holstebro" },
+      { t: "12:05", type: "drive", title: "Mod Holstebro", desc: "20 km tilbage mod byen. Første etape af dagens lange transport.", meta: "25 min" },
+      { t: "12:30", type: "food", title: "McDonald's Måbjerg — drive thru", desc: "Hyldgårdvej 5, nord i Holstebro og direkte på ruten mod Thisted. Bestil i app'en inden I når byen, så maden står klar — stoppet skal være kort. Spises i bilen.", meta: "15 min" },
+      { t: "12:45", type: "drive", title: "Nordpå til Thisted", desc: "90 km ad rute 11 gennem Thy via Struer.", meta: "1 t 5 min" },
+      { t: "13:50", type: "arrive", title: "Ankomst Nordvestjysk Golfklub", desc: "Kun 10 minutter til teetid. Skift tøj og pak bilen inden I kører fra McDonald's, så I kan gå direkte til tee. Check ind med DGU-kort, probox tager kun kort.", meta: "10 min til tee", warn: true },
       { t: "14:00", type: "golf", title: "Runde 2 — Nordvestjysk 18 huller", desc: "Klitbane i lyng og bjergfyr. Overvej buggy (300 kr.) — det er det bedst brugte beløb på hele turen med den tidsplan her.", meta: "ca. 4 t", course: "nordvestjysk" },
       { t: "18:00", type: "sun", title: "Dagens kritiske punkt", desc: "Solnedgang 18:08. Marginen er 8 minutter, og her er I ved Vesterhavet uden læ. Bliver runden bare 20 minutter forsinket, spilles de sidste huller i reelt tusmørke (civilt lys til 18:47).", meta: "Solnedgang 18:08", warn: true },
       { t: "18:15", type: "drive", title: "Kørsel til HimmerLand", desc: "100 km via Fjerritslev, Aggersundbroen og Løgstør. Mørk, men nem køretur.", meta: "1 t 25 min" },
@@ -208,7 +209,7 @@ const PACKING = [
 ];
 
 const PREP = [
-  { when: "Nu", task: "Book alle 6 teetider i GolfBox", why: "Oktober-formiddage på de gode baner forsvinder først. Dag 2 kl. 07:55 er den kritiske." },
+  { when: "Nu", task: "Book alle 6 teetider i GolfBox", why: "Oktober-formiddage på de gode baner forsvinder først. Dag 2 kl. 08:04 er den kritiske." },
   { when: "Nu", task: "Book hytte på Holstebro Søpark", why: "Vinteråbent, men begrænset antal hytter uden for sæsonen." },
   { when: "Nu", task: "Book hytte i Gatten på Airbnb", why: "Tjek tre ting på annoncen: at den tillader check-in efter kl. 19:30, at der er køkken, og hvor langt der reelt er til Starters House." },
   { when: "Nu", task: "Bekræft fri greenfee på alle seks baner", why: "Få skriftligt på plads, hvordan I checker ind, når I ikke betaler — så undgår I diskussion i proshoppen kl. 07:45." },

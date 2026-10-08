@@ -198,13 +198,13 @@ function buildOverview() {
 
   // Route
   const legs = [
-    ["Solrød Strand", "Lyngbygaard Golf, Brabrand", "255 km", "2 t 50 min", "E20 over Storebælt"],
-    ["Lyngbygaard Golf, Brabrand", "Silkeborg Golfklub, Sommervej 50, Silkeborg", "37 km", "25 min", "Silkeborgmotorvejen"],
-    ["Silkeborg", "Holstebro Søpark Camping, Birkevej 25, Holstebro", "80 km", "1 t 5 min", "Rute 15 vestpå"],
-    ["Holstebro", "Holstebro Golfklub Skovbanen, Brandsbjergvej 4, 7570 Vemb", "20 km", "25 min", "Lokalvej"],
-    ["Brandsbjergvej 4, 7570 Vemb", "Nordvestjysk Golfklub, Nystrupvej 19, Thisted", "110 km", "1 t 25 min", "Rute 11 gennem Thy"],
-    ["Nystrupvej 19, Thisted", "Hytte i Gatten, 9640 Farsø", "100 km", "1 t 25 min", "Via Aggersundbroen"],
-    ["HimmerLand Resort, Gatten", "Solrød Strand", "400 km", "4 t 15 min", "E45 + E20 over Storebælt"],
+    ["Solrød Strand", "Silkeborg Golfklub, Sommervej 50, 8600 Silkeborg", "292 km", "3 t 10 min", "E20 over Storebælt + Silkeborgmotorvejen"],
+    ["Silkeborg Golfklub, Sommervej 50, Silkeborg", "Lyngbygaard Golf, Lyngbygårdsvej 29, 8220 Brabrand", "37 km", "25 min", "Silkeborgmotorvejen østpå"],
+    ["Lyngbygaard Golf, Brabrand", "Best Western Hotel Royal, Den Røde Plads 10, 7500 Holstebro", "110 km", "1 t 20 min", "Rute 15 via Herning"],
+    ["Den Røde Plads 10, 7500 Holstebro", "Holstebro Golfklub Skovbanen, Brandsbjergvej 4, 7570 Vemb", "28 km", "30 min", "Rute 16 mod Vemb"],
+    ["Brandsbjergvej 4, 7570 Vemb", "Nordvestjysk Golfklub, Nystrupvej 19, Thisted", "110 km", "1 t 30 min", "Rute 11 gennem Thy, via McDonald's Måbjerg"],
+    ["Nystrupvej 19, Thisted", "A Hus, Gatten, 9640 Farsø", "100 km", "1 t 25 min", "Via Aggersundbroen"],
+    ["Gatten, 9640 Farsø", "Solrød Strand", "400 km", "4 t 15 min", "E45 + E20 over Storebælt"],
   ];
   const t = el("table");
   t.innerHTML = "<tr><th>Etape</th><th>Rute</th><th class='num'>Distance</th><th class='num'>Tid</th><th></th></tr>" +
@@ -212,7 +212,7 @@ function buildOverview() {
       <td><strong>${a.split(",")[0]}</strong> → <strong>${b.split(",")[0]}</strong><br><span style="color:var(--muted);font-size:.82rem">${via}</span></td>
       <td></td><td class="num">${km}</td><td class="num">${tm}</td>
       <td class="num"><a class="minibtn" target="_blank" rel="noopener" href="${dirs(a, b)}">Kort</a></td></tr>`).join("") +
-    `<tr class="total"><td>I alt</td><td></td><td class="num">1.002 km</td><td class="num">11 t 50 m</td><td></td></tr>`;
+    `<tr class="total"><td>I alt</td><td></td><td class="num">1.077 km</td><td class="num">12 t 35 m</td><td></td></tr>`;
   $("#route").appendChild(t);
 }
 
@@ -279,9 +279,10 @@ function budget() {
   const listFee = Object.values(COURSES).reduce((a, c) => a + c.greenfee, 0);
   const greenfee = TRIP.freeGolf ? 0 : listFee * T.f;
 
-  // Begge nætter er hytter, der deles af op til 4.
+  // Nat 1 er hotelværelser til 2; nat 2 er et Airbnb-hus, der deles af op til 4.
+  const rooms = Math.ceil(people / 2);
   const huts = Math.ceil(people / 4);
-  const stayTotal = (STAYS.soepark.price + STAYS.himmerland.price) * huts;
+  const stayTotal = STAYS.soepark.price * rooms + STAYS.himmerland.price * huts;
 
   // Kørslen er gratis — kun Storebælt koster.
   const bridge = TRIP.bridgeEachWay * 2 * cars; // 220 kr. pr. vej med BroBizz
@@ -300,7 +301,7 @@ function budget() {
     <tr class="sub"><td colspan="3">I spiller frit. Normalprisen ville have været ${kr(listFee)} pr. person.</td></tr>
 
     <tr><td>Overnatning — 2 nætter</td><td class="num">${kr(stayTotal / people)}</td><td class="num">${kr(stayTotal)}</td></tr>
-    <tr class="sub"><td colspan="3">${huts} hytte${huts > 1 ? "r" : ""} på Søpark (${kr(STAYS.soepark.price)}) + ${huts} Airbnb-hytte${huts > 1 ? "r" : ""} i Gatten (${kr(STAYS.himmerland.price)}) — hver deles af op til 4</td></tr>
+    <tr class="sub"><td colspan="3">${rooms} værelse${rooms > 1 ? "r" : ""} på Best Western Holstebro (${kr(STAYS.soepark.price)} pr. stk., 2 pers.) + ${huts} Airbnb-hus (${kr(STAYS.himmerland.price)}, deles af op til 4)</td></tr>
 
     <tr><td>Storebælt — tur/retur</td><td class="num">${kr(bridge / people)}</td><td class="num">${kr(bridge)}</td></tr>
     <tr class="sub"><td colspan="3">${kr(TRIP.bridgeEachWay)} pr. vej med BroBizz × ${cars} bil${cars > 1 ? "er" : ""} · kørslen er gratis</td></tr>

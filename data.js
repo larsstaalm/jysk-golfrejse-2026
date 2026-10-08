@@ -5,7 +5,7 @@
 const TRIP = {
   title: "Jysk Golfrejse",
   subtitle: "108 huller på 3 dage",
-  start: "2026-10-21T04:15:00+02:00",
+  start: "2026-10-21T04:30:00+02:00",
   home: { name: "Solrød Strand", q: "Solrød Strand, Danmark" },
   bridgeEachWay: 220,
   buggyPrice: 300, // BroBizz, personbil
@@ -91,7 +91,7 @@ const STAYS = {
     price: 1000,
     priceNote: "ca. 850–1.200 kr. pr. dobbeltværelse pr. nat inkl. morgenmad",
     blurb:
-      "Hotel midt i Holstebro i stedet for campinghytte. Rigtig seng efter en dag der starter 04:15, morgenbuffet inkluderet og gåafstand til byens restauranter — ingen aftenkørsel for at finde mad.",
+      "Hotel midt i Holstebro i stedet for campinghytte. Rigtig seng efter en dag der starter 04:30, morgenbuffet inkluderet og gåafstand til byens restauranter — ingen aftenkørsel for at finde mad.",
     perks: ["Morgenbuffet inkluderet", "Gåafstand til restauranter", "30 min. til Skovbanen", "Rigtig seng efter 439 km"],
     warnNote:
       "Bekræft ved booking at morgenbuffeten åbner senest 06:45 — I skal køre 07:15 for at nå teetiden 08:04. Ellers bed om en to-go-morgenmad aftenen før.",
@@ -126,21 +126,20 @@ const DAYS = [
     dateLabel: "21. oktober 2026",
     headline: "Solrød → Silkeborg → Brabrand",
     summary:
-      "Turens hårdeste morgen. Teetid 08:12 i Silkeborg betyder afgang fra Solrød kl. 04:15 og tre timers natkørsel. Til gengæld er resten af dagen rolig: kun 37 km mellem banerne og halvanden time til frokost inden runde 2 på Lyngbygaard kl. 14.",
+      "Turens hårdeste morgen. Teetid 08:12 i Silkeborg betyder afgang fra Solrød kl. 04:30 og tre timers natkørsel uden stop. Til gengæld er resten af dagen rolig: kun 37 km mellem banerne og halvanden time til frokost inden runde 2 på Lyngbygaard kl. 14.",
     drive: 439,
     courses: ["silkeborg", "lyngbygaard"],
     stay: "soepark",
     risk: "high",
-    riskNote: "Dagen klemmes i begge ender: afgang 04:15 i mørke, og runde 2 slutter 18:00 — kun 7 minutter før solnedgang. Midt på dagen er der til gengæld 1 t 20 min luft i Brabrand, som kan opsuge en forsinkelse fra formiddagen.",
+    riskNote: "Dagen klemmes i begge ender: afgang 04:30 i mørke og 292 km uden pause, og runde 2 slutter 18:00 — kun 7 minutter før solnedgang. Uden stop undervejs er der ingen buffer før teetid 08:12, så kør præcist. Midt på dagen er der til gengæld 1 t 20 min luft i Brabrand.",
     items: [
-      { t: "04:15", type: "drive", title: "Afgang fra Solrød Strand", desc: "Meget tidlig start — bilen skal pakkes og lades 100 % op aftenen før. 292 km til Silkeborg via E20, Storebælt og Silkeborgmotorvejen. I oktober og ved motorvejsfart er det en reel mundfuld for de fleste elbiler på én opladning.", meta: "3 t 10 min", warn: true },
-      { t: "05:35", type: "break", title: "Pause ved Storebælt", desc: "Kaffe ved Nyborg, hvor der er lynladere tæt på motorvejen. Tag 15-20 minutters lynladning her, hvis rækkevidden ser stram ud — det er sidste gode mulighed før Silkeborg. Broafgift 220 kr. med BroBizz.", meta: "15 min" },
+      { t: "04:30", type: "drive", title: "Afgang fra Solrød Strand", desc: "Meget tidlig start — bilen skal pakkes og lades 100 % op aftenen før. 292 km i ét stræk til Silkeborg via E20, Storebælt og Silkeborgmotorvejen. Ingen planlagte stop: termokande og morgenmad med i bilen, og broafgiften (220 kr.) trækkes automatisk med BroBizz.", meta: "3 t 10 min", warn: true },
       { t: "07:40", type: "arrive", title: "Ankomst Silkeborg Golfklub", desc: "Sæt bilen til laderen med det samme — før I går ind. Derefter check-in via GolfNext-automaten i Proshoppen. Det er stadig halvmørkt — daggry var 07:27, solen står først op 08:05.", meta: "32 min til teetid" },
       { t: "07:45", type: "charge", title: "Bilen lades under runde 1", desc: "Clever-ladestander på klubbens P-plads, Sommervej 50 — døgnåbent. Runden giver over fire timers ladetid, så bilen er fuld inden I kører videre. Tjek i Clever-app'en at standeren er ledig, inden I kører hjemmefra.", meta: "ca. 4 t 30 min på stik" },
       { t: "08:12", type: "golf", title: "Runde 1 — Silkeborg 18 huller", desc: "Kuperet skovbane i efterårsfarver. I slår ud 7 minutter efter solopgang, så de første huller spilles i lavt morgenlys.", meta: "ca. 4 t", course: "silkeborg" },
       { t: "12:12", type: "drive", title: "Videre mod Lyngbygaard", desc: "Husk at tage kablet af og afslutte ladningen i app'en. 37 km, næsten alt på Silkeborgmotorvejen — Lyngbygaard ligger i Brabrand vest for Aarhus, så I undgår byen helt.", meta: "25 min" },
       { t: "12:40", type: "arrive", title: "Ankomst Lyngbygaard Golf", desc: "Check-in i receptionen. God tid — brug den på rangen eller putting greenen.", meta: "1 t 20 min til teetid" },
-      { t: "12:50", type: "food", title: "Frokost i Brasseriet", desc: "45 minutter til at spise ordentligt og hvile benene. Efter en start kl. 04:15 er det her dagens vigtigste pause.", meta: "45 min" },
+      { t: "12:50", type: "food", title: "Frokost i Brasseriet", desc: "45 minutter til at spise ordentligt og hvile benene. Efter en start kl. 04:30 uden pause på vejen er det her dagens vigtigste hvil.", meta: "45 min" },
       { t: "14:00", type: "golf", title: "Runde 2 — Lyngbygaard 18 huller", desc: "Moderne parkbane i bølget østjysk landskab. Spil raskt — planen rammer solnedgangen præcist.", meta: "ca. 4 t", course: "lyngbygaard" },
       { t: "18:00", type: "sun", title: "Dagens kritiske punkt", desc: "Solnedgang 18:07. Marginen er 7 minutter, så hul 16-18 spilles i aftenlys. Der er civilt lys til 18:45, men brug lyse bolde og hold øje med tempoet fra hul 12.", meta: "Solnedgang 18:07", warn: true },
       { t: "18:15", type: "drive", title: "Kørsel til Holstebro", desc: "110 km ad rute 15 via Herning. Mørk køretur, og dagens anden lange etape — I har været oppe i 14 timer.", meta: "1 t 20 min" },
@@ -217,8 +216,8 @@ const PREP = [
   { when: "Nu", task: "Book A Hus på HimmerLand via Airbnb", why: "Tjek tre ting på annoncen: at den tillader selv-check-in efter kl. 19:30, at der er køkken, og hvor langt der reelt er til Starters House." },
   { when: "Nu", task: "Bekræft fri greenfee på alle seks baner", why: "Få skriftligt på plads, hvordan I checker ind, når I ikke betaler — så undgår I diskussion i proshoppen kl. 07:45." },
   { when: "Nu", task: "Overvej buggy på Nordvestjysk", why: "Dag 2 slutter 8 minutter før solnedgang. Buggy er den billigste forsikring mod at spille de sidste huller i mørke." },
-  { when: "Nu", task: "Planlæg ladestop på de to lange etaper", why: "292 km dag 1 og 400 km dag 3 kan ikke køres på én ladning i oktober. Nyborg på udturen og Fyn på hjemturen er de naturlige stop — læg dem ind i bilens ruteplanlægger." },
+  { when: "Nu", task: "Tjek at bilen kan køre 292 km non-stop i oktober", why: "Udturen er nu planlagt uden pause. Regn rækkevidden efter ved 110-130 km/t og 8-10 grader med varme på — holder den ikke, skal der lægges et lynladestop ind ved Nyborg, og afgangen rykkes tilbage til 04:15." },
   { when: "2 dage før", task: "Tjek banestatus på alle 6 baner", why: "Efterårsvejr kan give midlertidige greens — og dermed halv greenfee." },
   { when: "2 dage før", task: "Tjek ladestanderen ved Silkeborg Golfklub i Clever-app'en", why: "Den er døgnåben, men der er kun få stik. Har du en plan B i Silkeborg, er formiddagens ladning ikke kritisk." },
-  { when: "Dagen før", task: "Lad bilen 100 % op og pak den helt færdig", why: "Afgang kl. 04:15. Intet må findes frem om morgenen, og I skal kunne køre tre timer i mørke på én ladning." },
+  { when: "Dagen før", task: "Lad bilen 100 % op og pak den helt færdig", why: "Afgang kl. 04:30. Intet må findes frem om morgenen, og I skal køre 292 km i mørke uden planlagte stop. Fyld termokanden og tag morgenmad med i bilen." },
 ];

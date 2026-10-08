@@ -266,9 +266,9 @@ function buildStays() {
 
 /* ---------- Budget ---------- */
 const TIERS = {
-  lean: { f: 0.8, food: 350, note: "Mad fra supermarked og madlavning i begge hytter. Enkel standard begge nætter." },
-  mid: { f: 1, food: 650, note: "Frokost i klubhuset og én middag ude pr. dag. Det realistiske niveau." },
-  plus: { f: 1.25, food: 1100, note: "À la carte hver aften, bl.a. i restauranten på HimmerLand, og en større Airbnb-hytte. Buggy vælges separat ovenfor." },
+  lean: { f: 0.8, food: 350, note: "Mad fra supermarked, hotellets morgenbuffet og madlavning i A Hus. Enkel standard begge nætter." },
+  mid: { f: 1, food: 650, note: "Frokost i klubhuset dag 1, drive thru dag 2 og én middag ude pr. aften. Det realistiske niveau." },
+  plus: { f: 1.25, food: 1100, note: "À la carte hver aften, bl.a. i restauranten på HimmerLand, og et større Airbnb-hus. Buggy vælges separat ovenfor." },
 };
 let state = { people: 2, cars: 1, tier: "mid", buggyRounds: 6 };
 

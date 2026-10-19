@@ -4,7 +4,7 @@
 
 const TRIP = {
   title: "Jysk Golfrejse",
-  subtitle: "108 huller på 3 dage",
+  subtitle: "90 huller på 3 dage",
   start: "2026-10-21T04:30:00+02:00",
   home: { name: "Solrød Strand", q: "Solrød Strand, Danmark" },
   bridgeEachWay: 220,
@@ -67,18 +67,7 @@ const COURSES = {
     feeNote: "Fredag: dynamisk pris fra 500 kr. (man–tor 450 kr.)",
     blurb:
       "Resortets mesterskabsbane og tidligere vært for Made in HimmerLand på DP World Tour. Bred, dramatisk og i topstand.",
-    tip: "New Course lukker for sæsonen 1. november — I er inde under deadline med en uges margin.",
-  },
-  himmerlandOld: {
-    name: "HimmerLand",
-    course: "Old Course, 18 huller",
-    addr: "Centervej 1, Gatten, 9640 Farsø",
-    web: "https://himmerlandresort.dk/aktiviteter/golf/info-og-priser/",
-    greenfee: 400,
-    feeNote: "Fredag: dynamisk pris fra 400 kr. (man–tor 350 kr.)",
-    blurb:
-      "Den oprindelige bane — kortere, mere kuperet og med skovkarakter. Hul 1 på begge baner ligger bag Starters House, så skiftet mellem runderne tager under fem minutter.",
-    tip: "Ingen transport mellem de to runder. Det er derfor dag 3 er turens mest afslappede 36 huller.",
+    tip: "New Course lukker for sæsonen 1. november — I er inde under deadline med en uges margin. Hul 1 ligger bag Starters House, så der er få skridt fra parkeringen til første slag.",
   },
 };
 
@@ -181,24 +170,24 @@ const DAYS = [
     date: "2026-10-23",
     weekday: "Fredag",
     dateLabel: "23. oktober 2026",
-    headline: "36 huller på HimmerLand — og hjem",
+    headline: "New Course — og hjem i ordentlig tid",
     summary:
-      "Turens letteste golf-logistik: begge baner starter bag Starters House. Ingen transport mellem runderne giver den margin, der skal bruges på hjemturen.",
+      "Turens rolige afslutning. Én runde på mesterskabsbanen i fuldt dagslys, frokost i klubhuset bagefter, og så hjemad så tidligt at fredag aften stadig er fredag aften.",
     drive: 400,
-    courses: ["himmerlandNew", "himmerlandOld"],
+    courses: ["himmerlandNew"],
     stay: null,
     risk: "low",
-    riskNote: "Nul transport mellem runderne. Færdig 1,5 time før solnedgang.",
+    riskNote: "Turens eneste dag uden pres. Teetid 09:00 er 48 minutter efter solopgang, så frost på greens er afrystet, og I er færdige fem timer før solnedgang.",
     items: [
-      { t: "06:40", type: "food", title: "Morgenmad i A Hus", desc: "Egen morgenmad fra køkkenet — det var indkøbet i går aftes. Pak bilen helt, så I kan køre direkte hjem efter runde 2.", meta: "" },
-      { t: "07:25", type: "drive", title: "Til Starters House", desc: "Kort tur fra huset til klubhuset. Afsæt ti minutter mere, end kortet siger: det er mørkt og I skal have bags over på buggyen.", meta: "ca. 10 min" },
-      { t: "07:45", type: "golf", title: "Runde 1 — New Course", desc: "Mesterskabsbanen og tidligere vært for Made in HimmerLand. Lukker for sæsonen 1. november.", meta: "ca. 4 t", course: "himmerlandNew" },
-      { t: "11:45", type: "food", title: "Frokost i klubhuset", desc: "Tredive minutter. Hul 1 ligger lige uden for døren.", meta: "30 min" },
-      { t: "12:30", type: "golf", title: "Runde 2 — Old Course", desc: "Kortere, mere kuperet og med skovkarakter. Turens hul 91-108.", meta: "ca. 4 t", course: "himmerlandOld" },
-      { t: "16:30", type: "sun", title: "108 huller gennemført", desc: "Halvanden time før solnedgang. Tid til en øl i klubhuset inden hjemturen.", meta: "Solnedgang 18:01" },
-      { t: "17:00", type: "drive", title: "Afgang mod Solrød", desc: "400 km via E45, Vejle, Fyn og Storebæltsbroen (220 kr. med BroBizz). Lad op på HimmerLand inden afgang, hvis der er stik ved huset — 400 km kan ikke køres på én ladning i oktober.", meta: "4 t 15 min", warn: true },
-      { t: "19:00", type: "break", title: "Pause og lynladning på Fyn", desc: "Aftensmad undervejs — I har fortjent andet end en sandwich. Planlæg stoppet ved en lynlader, så maden og ladningen sker samtidig. De 45 minutter rækker til langt over halv batteri.", meta: "45 min" },
-      { t: "21:45", type: "arrive", title: "Hjemme i Solrød Strand", desc: "Turen er slut. 108 huller, 6 baner, 1.077 km.", meta: "" },
+      { t: "07:30", type: "food", title: "Morgenmad i A Hus", desc: "Sov ud — det er turens første morgen uden vækkeur før kl. 7. Egen morgenmad fra køkkenet, det var indkøbet torsdag aften.", meta: "" },
+      { t: "08:15", type: "stay", title: "Pak bilen og tjek ud", desc: "Alt skal med nu — I kommer ikke tilbage til huset. Tjek skabe, badeværelse og oplader, og læg nøglen som værten har aftalt.", meta: "30 min", stay: "himmerland" },
+      { t: "08:45", type: "drive", title: "Til Starters House", desc: "Kort tur fra huset til klubhuset. Nu er det lyst, så den er nemmere end torsdagens mørke morgen.", meta: "ca. 10 min" },
+      { t: "09:00", type: "golf", title: "Runde 1 — New Course", desc: "Mesterskabsbanen og tidligere vært for Made in HimmerLand. Turens sidste 18 huller — spil dem i ro, der er ingen næste runde at nå.", meta: "ca. 4 t", course: "himmerlandNew" },
+      { t: "13:00", type: "sun", title: "90 huller gennemført", desc: "Fem timer før solnedgang. Turen er slut på banen — og I har hele eftermiddagen til hjemturen.", meta: "Solnedgang 18:01" },
+      { t: "13:15", type: "food", title: "Frokost i klubhuset", desc: "Spis ordentligt inden de 400 km. Lad bilen op imens, hvis der er stik ved klubhuset.", meta: "45 min" },
+      { t: "14:00", type: "drive", title: "Afgang mod Solrød", desc: "400 km via E45, Vejle, Fyn og Storebæltsbroen (220 kr. med BroBizz). Hele turen køres i dagslys indtil Fyn — langt behageligere end den oprindelige aftenkørsel.", meta: "4 t 15 min" },
+      { t: "16:15", type: "break", title: "Pause og lynladning på Fyn", desc: "Kaffe og strøm samtidig. Planlæg stoppet ved en lynlader — 400 km kan ikke køres på én ladning i oktober. De 45 minutter rækker til langt over halv batteri.", meta: "45 min" },
+      { t: "19:00", type: "arrive", title: "Hjemme i Solrød Strand", desc: "Turen er slut. 90 huller, 5 baner, 1.077 km — og hjemme i tide til at få pakket ud.", meta: "" },
     ],
   },
 ];
@@ -207,14 +196,14 @@ const PACKING = [
   { cat: "Golf", items: ["Golfsæt + ekstra handsker", "Mindst 12 bolde pr. dag", "Regnhandsker (oktober i Thy)", "Vandtæt regntøj — jakke og bukser", "Ekstra par golfsko", "Håndklæde (gerne to)", "Afstandsmåler + oplader", "DGU-kort — kræves ved Nordvestjysk", "Tees, pitchfork, blyant"] },
   { cat: "Tøj", items: ["Varmt base layer", "Vindjakke", "Hue og halsedisse", "Skiftetøj til hver dag", "Morgenmad til fredag (købes torsdag)", "Pæne sko og skjorte til middag"] },
   { cat: "Bil & vej", items: ["BroBizz i forruden", "Type 2-ladekabel", "Ladebrik + app (Clever m.fl.) — tjek at abonnementet virker", "Telefonholder + billader", "Termokande", "Køletaske til snacks og drikkevarer", "Skraber og sprinklervæske", "Ekstra håndklæder til våde bags"] },
-  { cat: "Papirer", items: ["Bekræftelser på alle 6 teetider", "Hotelbooking Best Western + Airbnb-kode til A Hus", "Sygesikringsbevis", "Kreditkort — proboxen tager kun kort"] },
+  { cat: "Papirer", items: ["Bekræftelser på alle 5 teetider", "Hotelbooking Best Western + Airbnb-kode til A Hus", "Sygesikringsbevis", "Kreditkort — proboxen tager kun kort"] },
 ];
 
 const PREP = [
-  { when: "Nu", task: "Book alle 6 teetider i GolfBox", why: "Oktober-formiddage på de gode baner forsvinder først. Dag 2 kl. 08:04 er den kritiske." },
+  { when: "Nu", task: "Book alle 5 teetider i GolfBox", why: "Oktober-formiddage på de gode baner forsvinder først. Dag 2 kl. 08:04 er den kritiske." },
   { when: "Nu", task: "Book Best Western Hotel Royal, Holstebro", why: "Bekræft samtidig at morgenbuffeten åbner senest 06:45 — I skal køre 07:15 for at nå teetiden 08:04." },
   { when: "Nu", task: "Book A Hus på HimmerLand via Airbnb", why: "Tjek tre ting på annoncen: at den tillader selv-check-in efter kl. 19:30, at der er køkken, og hvor langt der reelt er til Starters House." },
-  { when: "Nu", task: "Bekræft fri greenfee på alle seks baner", why: "Få skriftligt på plads, hvordan I checker ind, når I ikke betaler — så undgår I diskussion i proshoppen kl. 07:45." },
+  { when: "Nu", task: "Bekræft fri greenfee på alle fem baner", why: "Få skriftligt på plads, hvordan I checker ind, når I ikke betaler — så undgår I diskussion i proshoppen kl. 07:45." },
   { when: "Nu", task: "Overvej buggy på Nordvestjysk", why: "Dag 2 slutter 8 minutter før solnedgang. Buggy er den billigste forsikring mod at spille de sidste huller i mørke." },
   { when: "Nu", task: "Tjek at bilen kan køre 292 km non-stop i oktober", why: "Udturen er nu planlagt uden pause. Regn rækkevidden efter ved 110-130 km/t og 8-10 grader med varme på — holder den ikke, skal der lægges et lynladestop ind ved Nyborg, og afgangen rykkes tilbage til 04:15." },
   { when: "2 dage før", task: "Tjek banestatus på alle 6 baner", why: "Efterårsvejr kan give midlertidige greens — og dermed halv greenfee." },

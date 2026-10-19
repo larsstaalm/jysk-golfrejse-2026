@@ -202,7 +202,8 @@ function buildOverview() {
     ["Silkeborg Golfklub, Sommervej 50, Silkeborg", "Lyngbygaard Golf, Lyngbygårdsvej 29, 8220 Brabrand", "37 km", "25 min", "Silkeborgmotorvejen østpå"],
     ["Lyngbygaard Golf, Brabrand", "Best Western Hotel Royal, Den Røde Plads 10, 7500 Holstebro", "110 km", "1 t 20 min", "Rute 15 via Herning"],
     ["Den Røde Plads 10, 7500 Holstebro", "Holstebro Golfklub Skovbanen, Brandsbjergvej 4, 7570 Vemb", "28 km", "30 min", "Rute 16 mod Vemb"],
-    ["Brandsbjergvej 4, 7570 Vemb", "Nordvestjysk Golfklub, Nystrupvej 19, Thisted", "110 km", "1 t 30 min", "Rute 11 gennem Thy, via McDonald's Måbjerg"],
+    ["Brandsbjergvej 4, 7570 Vemb", "McDonald's, Industrivej 1A, 7600 Struer", "25 km", "25 min", "Rute 11 nordpå — frokoststop og ladestander"],
+    ["Industrivej 1A, 7600 Struer", "Nordvestjysk Golfklub, Nystrupvej 19, Thisted", "70 km", "55 min", "Oddesundbroen og rute 11 gennem Thy"],
     ["Nystrupvej 19, Thisted", "A Hus, Gatten, 9640 Farsø", "100 km", "1 t 25 min", "Via Aggersundbroen"],
     ["Gatten, 9640 Farsø", "Solrød Strand", "400 km", "4 t 15 min", "E45 + E20 over Storebælt"],
   ];
@@ -212,7 +213,7 @@ function buildOverview() {
       <td><strong>${a.split(",")[0]}</strong> → <strong>${b.split(",")[0]}</strong><br><span style="color:var(--muted);font-size:.82rem">${via}</span></td>
       <td></td><td class="num">${km}</td><td class="num">${tm}</td>
       <td class="num"><a class="minibtn" target="_blank" rel="noopener" href="${dirs(a, b)}">Kort</a></td></tr>`).join("") +
-    `<tr class="total"><td>I alt</td><td></td><td class="num">1.077 km</td><td class="num">12 t 35 m</td><td></td></tr>`;
+    `<tr class="total"><td>I alt</td><td></td><td class="num">1.062 km</td><td class="num">12 t 25 m</td><td></td></tr>`;
   $("#route").appendChild(t);
 }
 
